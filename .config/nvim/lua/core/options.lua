@@ -1,3 +1,5 @@
+local theme = require("core.os-theme")
+
 -- Line numbers
 vim.opt.number, vim.opt.relativenumber = true, true
 
@@ -7,17 +9,28 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 
--- Finder
-vim.opt.path = "**"
-
 -- Colorscheme
-vim.cmd("colorscheme desert")
+vim.cmd("colorscheme habamax")
 
 -- Cursor
 vim.opt.cursorline = true
-vim.api.nvim_set_hl(0, "CursorLine", {
-  bg = "#38383C",
-})
+
+if theme == "dark" then
+    vim.api.nvim_set_hl(0, "CursorLine", {
+        bg = "#38383C",
+    })
+    vim.api.nvim_set_hl(0, "ColorColumn", {
+        bg = "#38383C",
+    })
+else
+    vim.api.nvim_set_hl(0, "CursorLine", {
+        bg = "#E5E5E5",
+    })
+    vim.api.nvim_set_hl(0, "ColorColumn", {
+        bg = "#E5E5E5",
+    })
+end
+
 vim.opt.colorcolumn = "100"
 
 -- Special characters
@@ -29,9 +42,6 @@ vim.opt.listchars:append({
     extends = "»",
     tab = "> "
 })
-
--- Let treesitter do its job
-vim.opt.syntax = "off"
 
 -- Remove every background color
 vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })

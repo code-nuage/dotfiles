@@ -5,8 +5,8 @@ alias lla='ls -la'
 
 alias cl="clear"
 
-alias rb="loginctl reboot"
-alias sd="loginctl poweroff"
+alias rb="systemctl reboot"
+alias sd="systemctl poweroff"
 
 alias vim="nvim"
 alias cd="z"

@@ -1,5 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
+  tag = "v2.5.0",
   config = function()
     local lspconfig = require("lspconfig")
 
@@ -12,6 +13,8 @@ return {
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
       end,
     })
+
+    lspconfig.lua_ls.setup({})
 
     vim.diagnostic.config({
       virtual_text = true,

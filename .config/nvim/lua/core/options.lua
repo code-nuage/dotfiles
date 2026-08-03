@@ -48,3 +48,15 @@ vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "none", ctermbg = "none" })
 vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none", ctermbg = "none" })
+
+-- Replace search and replace native behavior
+vim.api.nvim_create_autocmd("CmdlineLeave", {
+  callback = function()
+    local cmd = vim.fn.getcmdline()
+    if cmd:match("^%%?s") then
+      vim.defer_fn(function()
+        vim.cmd("nohlsearch")
+      end, 10)
+    end
+  end,
+})

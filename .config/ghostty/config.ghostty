@@ -1,0 +1,6 @@
+theme = dark:Adwaita Dark,light:Adwaita
+
+command = tmux new-session -A -s main
+
+window-padding-y = 4
+window-padding-x = 4

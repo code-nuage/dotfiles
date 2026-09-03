@@ -1,4 +1,5 @@
 local theme = require("core.os-theme")
+local telescope = require("telescope")
 
 -- Line numbers
 vim.opt.number, vim.opt.relativenumber = true, true
@@ -60,3 +61,17 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
     end
   end,
 })
+
+-- Telescope exludes
+telescope.setup{
+  defaults = {
+    file_ignore_patterns = {
+      "node_modules",
+      "%.git/",
+      "dist/",
+      "build/",
+      "%.cache",
+      "vendor/",
+    },
+  },
+}

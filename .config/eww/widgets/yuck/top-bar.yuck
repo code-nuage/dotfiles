@@ -1,0 +1,53 @@
+; --+ TOP-BAR +--
+
+(defwidget top-bar []
+	(centerbox
+		:orientation "h"
+		(top-bar-left)
+		(top-bar-center)
+		(top-bar-right)
+	)
+)
+
+(defwidget top-bar-left []
+	(box :class "tb-left")
+)
+
+(defwidget top-bar-center []
+	(box :class "tb-center"
+		:orientation "h" :halign "center" :valign "center"
+		:width 80 :height 32
+		(label :class "time" :text "${time}")
+	)
+)
+
+(defwidget top-bar-right []
+	(box :class "tb-right"
+		:orientation "h"
+		:halign "end" :valign "center"
+		:spacing 4
+		(top-bar-dashboard-toggler)
+	)
+)
+
+(defwidget top-bar-dashboard-toggler []
+	(button :onclick "scripts/toggler.sh dashboard"
+		:width 32 :height 32
+		(image
+			:path "icons/menu.svg"
+		)
+	)
+)
+
+(defwindow top-bar
+	:monitor 0
+	:geometry (geometry
+		:x "0%" :y "0px"
+		:width "1904px" :height "48px"
+		:anchor "top center")
+	:stacking "overlay"
+	:exclusive true
+	:namespace "top-bar"
+	:windowtype "dock"
+	(top-bar)
+)

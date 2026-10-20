@@ -1,0 +1,41 @@
+// --+ TOP BAR +--
+.top-bar {
+	.tb-center, {
+		background-color: $color-background;
+		border: 1px solid $color-border;
+	}
+
+	.tb-center {
+		.time {
+			font-size: 16px;
+			font-weight: 700;
+		}
+	}
+
+    .tb-right {
+        > * {
+            background-color: $color-background;
+            border: 1px solid $color-border;
+        }
+        .battery {
+	        transition: 1s;
+        }
+
+        .status.battery.low {
+	        background: $color-warning;
+        }
+
+        .status.battery.critical {
+	        background: $color-negative;
+        }
+
+        .status.battery.charging {
+	        background: $color-positive;
+        }
+
+        .status.battery.charged {
+           	background: $color-foreground;
+        }
+    }
+}
+

@@ -1,0 +1,38 @@
+// --+ LAUNCHER +--
+.launcher {
+	background: $color-background;
+	padding: $pad-medium;
+	border: 1px solid $color-border;
+	min-width: 480px;
+
+	.prompt {
+		background: $color-foreground;
+		font-weight: 700;
+		padding: $pad-small;
+		margin-bottom: $pad-small;
+	}
+
+	.app-list {
+		min-height: 256px;
+	}
+
+	.apps {
+		.app {
+			padding: $pad-small;
+
+			&:hover {
+				background: $color-foreground;
+			}
+
+			.app-name {
+				font-weight: 600;
+				margin-left: $pad-small;
+			}
+
+			.app-generic {
+				color: darken($color-foreground, 15%);
+				margin-left: $pad-small;
+			}
+		}
+	}
+}

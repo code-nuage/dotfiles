@@ -1,0 +1,21 @@
+; --+ RUNNER +--
+
+(defwidget runner []
+	(box :class "runner"
+		(box :class "prompt"
+			:orientation "h"
+			:halign "start" :valign "center"
+			:space-evenly false
+			(image :path "icons/prompt.svg")
+			(input :onaccept "eww close runner && '{}'")
+		)
+	)
+)
+
+(defwindow runner
+	:monitor 0 :stacking "fg"
+	:geometry (geometry :x 0 :y 8 :anchor "bottom center")
+	:focusable true
+	:namespace "runner"
+	(runner)
+)

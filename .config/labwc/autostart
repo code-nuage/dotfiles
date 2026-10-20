@@ -1,0 +1,15 @@
+#!/bin/sh
+# Displays
+wlr-randr --output DP-1 --mode 1920x1080@144.001007Hz 2>&1 &
+
+# Background
+swaybg -i "/home/eloi/Images/Wallpapers/clouds-dark.png" -m fill
+
+# Idle
+swayidle -w \
+	timeout 300 'swaylock -f -c 000000' \
+	before-sleep 'swaylock -f -c 000000' >/dev/null 2>&1 &
+
+# Widgets
+eww daemon 2>&1 &
+eww open top-bar 2>&1 &

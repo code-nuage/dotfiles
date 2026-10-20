@@ -1,0 +1,73 @@
+// --+ DASHBOARD +--
+.dashboard {
+	background: $color-background;
+	border: 1px solid $color-foreground;
+	padding: $pad-medium;
+
+	.leftmenu {
+  		padding-right: $pad-small;
+        .leftmenu-top {
+            padding-bottom: 4px;
+            border-bottom: 1px solid $color-foreground;
+        }
+        .leftmenu-bottom {
+            margin-top: 4px;
+        }
+	    .leftmenu-top, .leftmenu-bottom {
+    		> * {
+    			padding-left: $pad-medium;
+    			background: $color-foreground;
+    			label {
+    				font-size: 16px;
+    				font-weight: 700;
+    				margin-left: 8px;
+    			}
+    		}
+
+            .battery {
+               	transition: 1s;
+            }
+
+            .status.battery.low {
+               	background: $color-warning;
+            }
+
+            .status.battery.critical {
+             	background: $color-negative;
+            }
+
+            .status.battery.charging {
+                background: $color-positive;
+            }
+
+            .status.battery.charged {
+               	background: $color-foreground;
+            }
+
+            .status-slider {
+                scale trough {
+                    background: $color-background ;
+                    min-height: 8px;
+                    margin: 0 8px;
+                }
+                scale trough highlight {
+                    background: $color-accent;
+                }
+            }
+		}
+	}
+
+	.powermenu {
+		padding-left: $pad-small;
+		.power-item {
+			transition: .1s;
+			background: $color-foreground;
+		}
+		.power-item:hover {
+		    background: $color-accent;
+		}
+		.power-item.poweroff:hover {
+		    background: $color-negative;
+		}
+	}
+}

@@ -1,0 +1,51 @@
+; --+ LAUNCHER +--
+
+(defvar filtered "[]")
+
+(defwidget launcher []
+	(box :class "launcher"
+		:orientation "v"
+		:space-evenly false
+		(box :class "prompt"
+			:orientation "h"
+			:halign "fill" :valign "center"
+			:space-evenly false
+			(image :path "icons/prompt.svg")
+			(input
+				:onchange "scripts/apps.sh filter '{}'"
+				:onaccept "eww close launcher && scripts/apps.sh accept '{}'"
+			)
+		)
+		(scroll :class "app-list" :vscroll true :height 0
+			(box :class "apps"
+				:orientation "v"
+				:space-evenly false
+				(for app in filtered
+					(button :class "app" :halign "fill"
+						:onclick "eww close launcher && scripts/apps.sh launch '${app.id}'"
+						(box
+							:orientation "h"
+							:space-evenly false
+							:valign "center"
+							(label
+								:class "app-name"
+								:halign "start" :valign "center"
+								:truncate true
+								:limit-width 32
+								:text "${app.name}"
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)
+
+(defwindow launcher
+	:monitor 0 :stacking "fg"
+	:geometry (geometry :x 0 :y 0 :anchor "center center")
+	:focusable true
+	:namespace "launcher"
+	(launcher)
+)

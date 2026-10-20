@@ -1,0 +1,109 @@
+; --+ DASHBOARD +--
+
+(defwidget dashboard []
+	(box :class "dashboard"
+		:orientation "h"
+		:halign "center" :valign "center"
+		:space-evenly false
+		(leftmenu)
+		(powermenu)
+	)
+)
+
+; LEFTMENU
+(defwidget leftmenu []
+    (box :class "leftmenu"
+        :orientation "v"
+        :halign "start" :valign "start"
+        :space-evenly false
+        (leftmenu-top)
+        (leftmenu-bottom)
+    )
+)
+
+; STATUS
+(defwidget leftmenu-top []
+    (box :class "leftmenu-top"
+		:orientation "v"
+		:halign "start" :valign "start"
+		:spacing 4
+		:width 160
+		(status-slider :icon "icons/volume.svg" :value volume :command "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%")
+    )
+)
+
+(defwidget leftmenu-bottom []
+    (box :class "leftmenu-bottom"
+		:orientation "v"
+		:halign "start" :valign "start"
+		:spacing 4
+		:width 160
+		(status-item :icon "icons/uptime.svg" :content "${uptime}")
+		(status-item :icon "icons/memory.svg" :content "${round(EWW_RAM.used_mem / 1073741824, 1)}G/${round(EWW_RAM.total_mem / 1073741824, 1)}G")
+    )
+)
+
+(defwidget status-slider [icon value command]
+    (box :class "status-slider"
+    :halign "start" :valign "start"
+    :space-evenly false
+    :width 192 :height 32
+		(image
+			:path icon
+		)
+		(scale :class "scale"
+		    :orientation "h"
+		    :hexpand true
+			:value value
+            :min 0
+            :max 101
+            :onchange command
+        )
+    )
+)
+
+(defwidget status-item [icon content]
+	(box :class "status-item"
+		:halign "start" :valign "start"
+		:space-evenly false
+		:width 192 :height 32
+		(image
+			:path icon
+		)
+		(label
+			:halign "start" :valign "center"
+			:truncate true
+			:text content
+		)
+	)
+)
+
+; POWERMENU
+(defwidget powermenu []
+	(box :class "powermenu"
+		:orientation "v"
+		:halign "center" :valign "start"
+		:spacing 4
+		(power-item :class "poweroff" :icon "icons/poweroff.svg" :command "systemctl poweroff")
+		(power-item :class "reboot" :icon "icons/reboot.svg" :command "systemctl reboot")
+		(power-item :class "lock" :icon "icons/lock.svg" :command "gtklock")
+	)
+)
+
+(defwidget power-item [icon command class]
+    (button :class "power-item ${class ?: ""}"
+		:halign "center" :valign "center"
+		:width 32 :height 32
+		:onclick command
+		(image :path icon :svg-fill "#ffffff"
+			:image-width 16 :image-height 16
+		)
+	)
+)
+
+(defwindow dashboard
+	:monitor 0 :stacking "fg"
+	:geometry (geometry :x "8px" :y "8px" :anchor "top right")
+	:namespace "dashboard"
+	(dashboard)
+)

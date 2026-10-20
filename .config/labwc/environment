@@ -1,0 +1,6 @@
+# Clavier : XKB_DEFAULT_LAYOUT=us(intl) — détails : xkeyboard-config(7)
+XKB_DEFAULT_LAYOUT=us(intl)
+
+# Curseur
+XCURSOR_THEME=Adwaita
+XCURSOR_SIZE=24

@@ -1,0 +1,11 @@
+theme = dark:Adwaita Dark,light:Adwaita
+
+title = Terminal
+
+command = tmux new-session -A -s main
+
+window-padding-y = 4
+window-padding-x = 4
+
+gtk-titlebar = true
+window-decoration = client

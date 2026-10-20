@@ -1,0 +1,10 @@
+// --+ RUNNER +--
+.runner {
+	background: $color-background;
+	padding: $pad-medium;
+	border: 1px solid $color-border;
+	.prompt {
+		background: $color-foreground;
+		font-weight: 700;
+	}
+}

@@ -1,0 +1,10 @@
+@import "widgets/scss/vars.scss";
+@import "widgets/scss/dashboard.scss";
+@import "widgets/scss/top-bar.scss";
+@import "widgets/scss/runner.scss";
+@import "widgets/scss/launcher.scss";
+
+* {
+	all: unset;
+	font-family: "Adwaita Sans", monospace;
+}

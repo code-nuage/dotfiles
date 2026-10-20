@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<labwc_config>
+  <desktops>
+    <popupTime>1000</popupTime>
+    <names>
+      <name>1</name>
+      <name>2</name>
+      <name>3</name>
+      <name>4</name>
+    </names>
+  </desktops>
+
+  <theme>
+    <name>Adwaita-Dark</name>
+    <cornerRadius>0</cornerRadius>
+    <font name="Adwaita Sans" size="12" />
+    <titlebar>
+      <layout>:iconify,close</layout>
+      <showTitle>no</showTitle>
+    </titlebar>
+  </theme>
+
+  <windowSwitcher show="yes" style="classic" preview="yes" outlines="yes" allWorkspaces="no">
+    <fields>
+      <field content="desktop_entry_name" width="60%" />
+      <field content="title" width="40%" />
+    </fields>
+  </windowSwitcher>
+
+  <keyboard>
+    <default />
+    <keybind key="W-Return">
+      <action name="Execute" command="ghostty" />
+    </keybind>
+    <keybind key="W-Backspace">
+      <action name="Execute" command="swaylock -f -c 000000" />
+    </keybind>
+    <keybind key="W-c">
+      <action name="Execute" command="~/.config/eww/scripts/toggler.sh runner" />
+    </keybind>
+    <keybind key="W-d">
+      <action name="Execute" command="~/.config/eww/scripts/toggler.sh launcher" />
+    </keybind>
+    <keybind key="W-S-q">
+      <action name="Close" />
+    </keybind>
+    <keybind key="W-S-Space">
+      <action name="ToggleMaximize" />
+    </keybind>
+    <keybind key="W-1">
+      <action name="GoToDesktop" to="1" />
+    </keybind>
+    <keybind key="W-2">
+      <action name="GoToDesktop" to="2" />
+    </keybind>
+    <keybind key="W-3">
+      <action name="GoToDesktop" to="3" />
+    </keybind>
+    <keybind key="W-4">
+      <action name="GoToDesktop" to="4" />
+    </keybind>
+    <keybind key="W-S-1">
+      <action name="SendToDesktop" to="1" />
+    </keybind>
+    <keybind key="W-S-2">
+      <action name="SendToDesktop" to="2" />
+    </keybind>
+    <keybind key="W-S-3">
+      <action name="SendToDesktop" to="3" />
+    </keybind>
+    <keybind key="W-S-4">
+      <action name="SendToDesktop" to="4" />
+    </keybind>
+  </keyboard>
+
+  <mouse>
+    <default />
+  </mouse>
+</labwc_config>

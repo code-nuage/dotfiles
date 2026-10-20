@@ -1,0 +1,6 @@
+(include "widgets/yuck/vars.yuck")
+
+(include "widgets/yuck/top-bar.yuck")
+(include "widgets/yuck/dashboard.yuck")
+(include "widgets/yuck/runner.yuck")
+(include "widgets/yuck/launcher.yuck")
